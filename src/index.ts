@@ -4,7 +4,6 @@ import {glob} from "glob";
 
 export interface DependencyStripOptions {
     verbose?: boolean;
-    preserveRoot?: boolean;
     update?: boolean;
     excludes: string[];
     paths: string[];

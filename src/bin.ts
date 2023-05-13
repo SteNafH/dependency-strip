@@ -6,7 +6,7 @@ const runHelpForUsage = () => console.error('run `dependency-strip --help` for u
 
 export const help = `rimraf version ${version}
 
-Usage: dependency-strip <path> [<path> ...]
+Usage: dependency-strip --path=<path>
 Check all files and folders at "path", recursively.
 
 Options:
@@ -34,10 +34,6 @@ const main = async (...args: string[]) => {
             opts.update = true;
         } else if (arg === '--verbose') {
             opts.verbose = true;
-        } else if (arg === '--preserve-root') {
-            opts.preserveRoot = true
-        } else if (arg === '--no-preserve-root') {
-            opts.preserveRoot = false
         } else if (/^--exclude=/.test(arg)) {
             opts.excludes.push(arg.substring('--exclude='.length));
         } else if (/^--path=/.test(arg)) {
