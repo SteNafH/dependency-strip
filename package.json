@@ -1,20 +1,23 @@
 {
   "name": "dependency-strip",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/src/index.js",
+  "types": "lib/src/index.d.ts",
+  "bin": "lib/src/bin.js",
   "scripts": {
-    "test": "jest",
     "build": "tsc",
-    "prepare" : "npm run build",
-    "prepublishOnly": "npm test"
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SteNafH/dependency-strip.git"
   },
-  "keywords": ["Dependency", "Strip", "NodeJs"],
+  "keywords": [
+    "Dependency",
+    "Strip",
+    "NodeJs"
+  ],
   "author": "Stefan Hilhorst",
   "license": "MIT",
   "bugs": {
@@ -22,12 +25,14 @@
   },
   "homepage": "https://github.com/SteNafH/dependency-strip#readme",
   "devDependencies": {
-    "@types/jest": "^29.5.1",
-    "jest": "^29.5.0",
-    "ts-jest": "^29.1.0",
+    "@types/node": "^18.16.8",
     "typescript": "^5.0.4"
   },
   "files": [
     "lib/**/*"
-  ]
+  ],
+  "dependencies": {
+    "find-imports": "^1.1.0",
+    "glob": "^10.2.3"
+  }
 }
