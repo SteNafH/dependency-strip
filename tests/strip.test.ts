@@ -22,8 +22,8 @@ jest.mock('glob', () => {
     };
 });
 
-jest.mock('find-imports', () => {
-    const originalModule = jest.requireActual('find-imports');
+jest.mock('../src/imports.ts', () => {
+    const originalModule = jest.requireActual('../src/imports.ts');
 
     return {
         __esModule: true,
@@ -45,6 +45,7 @@ describe("strip", () => {
             update: true,
             excludes: [],
             paths: paths,
+            ignorePaths: []
         };
 
         await strip(options);
@@ -62,6 +63,7 @@ describe("strip", () => {
             update: true,
             excludes: ["dep2"],
             paths: paths,
+            ignorePaths: []
         };
 
         await strip(options);
@@ -78,6 +80,7 @@ describe("strip", () => {
             update: false,
             excludes: [],
             paths: [],
+            ignorePaths: []
         };
 
         await strip(options);
