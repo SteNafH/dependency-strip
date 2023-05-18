@@ -1,6 +1,6 @@
 {
   "name": "dependency-strip",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Dependency Strip is a command-line tool that removes unused dependencies",
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",
