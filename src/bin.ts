@@ -14,6 +14,8 @@ Options:
   --verbose            Log info about which files are being checked
   --path               Glob pattern for paths of files/directories 
                        which should be checked
+  --ignorePath         Glob pattern for paths of files/directories 
+                       which should NOT be checked
   --exclude            Dependencies that should be ignored for
                        the strip 
   --update             Update the package.json to only include
@@ -23,7 +25,8 @@ Options:
 const main = async (...args: string[]) => {
     const opts: DependencyStripOptions = {
         paths: [],
-        excludes: []
+        ignorePaths: [],
+        excludes: [],
     };
 
     for (const arg of args) {
@@ -38,6 +41,8 @@ const main = async (...args: string[]) => {
             opts.excludes.push(arg.substring('--exclude='.length));
         } else if (/^--path=/.test(arg)) {
             opts.paths.push(arg.substring('--path='.length));
+        } else if (/^--ignorePath=/.test(arg)) {
+            opts.ignorePaths.push(arg.substring('--ignorePath='.length));
         } else if (/^-/.test(arg)) {
             console.error(`unknown option: ${arg}`)
             runHelpForUsage()
